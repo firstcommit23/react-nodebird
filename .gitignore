@@ -134,7 +134,7 @@ typings/
 
 # Serverless directories
 .serverless
-/front/build/
+build/
 react-nodebird.pem
 react-nodebird-aws.pem
 node_modules
