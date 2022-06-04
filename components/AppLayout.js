@@ -7,9 +7,9 @@ import UserProfile from '../components/UserProfile';
 import LoginForm from '../components/LoginForm';
 import styled from 'styled-components';
 
-// 인라인 스타일을 사용하는 경우 리렌더링 되기 때문에 styled component, 또는 useMemo를 사용하여 성능 향상을 시킬 수 있다.
+// 인라인 스타일을 사용하는 경우 리렌더링 되기 때문에 styled component, 또는 useMemo를 사용하여 렌더링 최적화.
 //const style= useMemo(()=> ({marginTop:10}), []);
-const SearchInput = styled(Inpuy.Search)`
+const SearchInput = styled(Input.Search)`
     verticalalign: 'middle';
 `;
 
@@ -44,7 +44,11 @@ const AppLayout = ({ children }) => {
             </Menu>
             <Row gutter={8}>
                 <Col xs={24} md={6}>
-                    {isLoggedIn ? <UserProfile /> : <LoginForm />}
+                    {isLoggedIn ? (
+                        <UserProfile setIsLoggedIn={setIsLoggedIn} />
+                    ) : (
+                        <LoginForm setIsLoggedIn={setIsLoggedIn} />
+                    )}
                 </Col>
                 <Col xs={24} md={12}>
                     {children}
