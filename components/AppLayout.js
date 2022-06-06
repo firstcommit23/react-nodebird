@@ -10,7 +10,7 @@ import styled from 'styled-components';
 // 인라인 스타일을 사용하는 경우 리렌더링 되기 때문에 styled component, 또는 useMemo를 사용하여 렌더링 최적화.
 //const style= useMemo(()=> ({marginTop:10}), []);
 const SearchInput = styled(Input.Search)`
-    verticalalign: 'middle';
+    vertical-align: middle;
 `;
 
 const AppLayout = ({ children }) => {
