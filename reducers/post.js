@@ -4,7 +4,7 @@ export const initialState = {
             id: 1,
             User: {
                 id: 1,
-                nickname: '제로초',
+                nickname: '지민',
             },
             content: '첫번째 게시글 ㅎㅎ',
             Images: [
@@ -42,7 +42,7 @@ const dummyPost = {
     content: '더미더미',
     User: {
         id: 1,
-        nickname: '제로초',
+        nickname: '지민',
     },
     Images: [],
     Comments: [],
