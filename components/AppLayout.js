@@ -5,7 +5,7 @@ import { Menu, Input, Row, Col } from 'antd';
 import 'antd/dist/antd.css';
 import UserProfile from '../components/UserProfile';
 import LoginForm from '../components/LoginForm';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import { useSelector } from 'react-redux';
 
 // 인라인 스타일을 사용하는 경우 리렌더링 되기 때문에 styled component, 또는 useMemo를 사용하여 렌더링 최적화.
@@ -14,12 +14,29 @@ const SearchInput = styled(Input.Search)`
     vertical-align: middle;
 `;
 
+// gutter 문제로 가로 스크롤 제거를 위해 추가.
+const Global = createGlobalStyle`
+.ant-row {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+
+.ant-col:first-child {
+    padding-left: 0 !important;
+}
+
+.ant-col:last-child {
+    padding-right: 0 !important;
+}
+`;
+
 const AppLayout = ({ children }) => {
     //const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
     const { isLoggedIn } = useSelector((state) => state.user);
     const onSearch = () => {};
     return (
         <div>
+            <Global />
             <Menu mode="horizontal">
                 <Menu.Item>
                     <Link href="/">
