@@ -6,7 +6,8 @@ export const initialState = {
                 id: 1,
                 nickname: '지민',
             },
-            content: '첫번째 게시글 ㅎㅎ',
+            content:
+                '첫번째 게시글 ㅎㅎ #해시태그 #요것은 무엇인가 #띄워쓰기하면안되여',
             Images: [
                 {
                     src: 'https://openimage.interpark.com/dia/images/479/5/210730005/26a75cb85ee943a3aab40e7a0708f72e.jpg',
@@ -24,6 +25,12 @@ export const initialState = {
                         nickname: 'nero',
                     },
                     content: '잼써영',
+                },
+                {
+                    User: {
+                        nickname: '병건',
+                    },
+                    content: '화이팅~!',
                 },
             ],
         },
