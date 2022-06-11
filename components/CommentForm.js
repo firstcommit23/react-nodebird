@@ -1,16 +1,22 @@
 import React, { useCallback } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Form, Input, Button } from 'antd';
 import PropTypes from 'prop-types';
 import useInput from '../hooks/useInput';
+import { ADD_COMMENT_REQUEST } from '../reducers/post';
 
 const CommentForm = ({ post }) => {
     // form 라이브러리 리서치해보기.
+    const dispatch = useDispatch();
     const id = useSelector((state) => state.user.me?.id);
-    const [commentText, onChangeCommentText] = useInput('');
+    const [commentText, onChangeCommentText, setComment] = useInput('');
     const onSubmitComment = useCallback(() => {
         console.log(post.id, commentText);
-    }, [commentText]);
+        dispatch({
+            type: ADD_COMMENT_REQUEST,
+            data: { content: commentText, postId: post.id, userId: id },
+        });
+    }, [commentText, id]);
     return (
         <Form onFinish={onSubmitComment}>
             <Form.Item style={{ position: 'relative', margin: 0 }}>
